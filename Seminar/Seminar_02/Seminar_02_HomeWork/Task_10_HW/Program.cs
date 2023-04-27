@@ -7,5 +7,6 @@
 System.Console.WriteLine("Введите трехзначное число");
 int num = Convert.ToInt32(Console.ReadLine());
 
+
 if (num > 99 && num < 1000 || num < -99 && num > -1000) System.Console.WriteLine((num%100)/10);
 else System.Console.WriteLine("ОШИБКА!!! Нужно ввести трехзначное число");
