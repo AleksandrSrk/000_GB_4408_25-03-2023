@@ -4,21 +4,46 @@
 // Сначала задается N с клавиатуры, потом задаются координаты точек.
 
 System.Console.Write("Введите количество плоскостей: ");
-int lenghtArray = (Convert.ToInt32(Console.ReadLine())) * 2;
-FillingFrray(lenghtArray);
-
-
-Array FillingFrray(int number)
+try
 {
+    int lenghtArray = (Convert.ToInt32(Console.ReadLine())) * 2;
+    double[] arr = new double[lenghtArray];
+    double res = 0;
 
-    int[] arr = new int[number];
-    for (int i = 0; i < arr.Length; i++)
+    FillingFrray();
+    DistancePoint();
+
+    // Console.WriteLine("[{0}]", string.Join(", ", arr)); // ПЕЧАТЬ МАССИВА
+    System.Console.WriteLine($"Длина вектора между двумя точками: {Math.Round(Math.Sqrt(res), 3)}");
+
+    Array FillingFrray() // Заполняем массив координатами
     {
-        System.Console.Write($"Введите координату {i + 1}: ");
-        int point = Convert.ToInt32(Console.ReadLine());
-        arr[i] = point;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            System.Console.Write($"Введите поочередно координаты двух точек в плоскости. Координата {i + 1}: ");
+            double point = Convert.ToDouble(Console.ReadLine());
+            arr[i] = point;
+        }
+        return arr;
     }
 
-    return arr;
+    double DistancePoint() // Вычисляем расстояние. Цикл длится массив пополам. Затем работаем с цифрами из ячеек массива (0 и последняя, 1 и предпоследняя, 2 и 2 с конца и тд.)
+    {
+        int right = lenghtArray - 1;
+        int left = lenghtArray / 2 - 1;
+
+        for (int i = 0; i < lenghtArray / 2; i++)
+        {
+            res = res + (Math.Pow((arr[right] - arr[left]), 2));
+            right--;
+            left--;
+        }
+        return res;
+    }
+
 }
-//System.Console.WriteLine(arr[1]);
+catch
+{
+    System.Console.WriteLine("ОШИБКА!!! Нужно ввести целое число.");
+}
+
