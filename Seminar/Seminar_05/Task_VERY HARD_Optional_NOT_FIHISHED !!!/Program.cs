@@ -44,7 +44,13 @@ void CountSequence(int[] arr)
     Array.Sort(arr);
     foreach (int item in arr)
     {
-        System.Console.Write($"{item} ");
+        System.Console.Write($"{item -1} ");
+        if (item == item + 1)
+        {
+            count++;
+            System.Console.WriteLine(count);
+            //System.Console.Write($"{arr[i]}");
+        }
     }
     System.Console.WriteLine();
     for (int i = 0; i < arr.Length; i++)
