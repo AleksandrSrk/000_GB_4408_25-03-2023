@@ -1,0 +1,20 @@
+﻿int PowerFor(int a, int n)
+{
+    int res = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        res *= a;
+    }
+    return res;
+}
+
+int PowerRec(int a, int n){
+    if (n==0)
+    {
+        return 1;
+    } else return PowerRec (a, n-1) *a;
+}
+
+System.Console.WriteLine(PowerFor(2, 10));
+System.Console.WriteLine(PowerRec(2, 10));
+
