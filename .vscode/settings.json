@@ -1,3 +1,7 @@
 {
-    "dotnet.defaultSolution": "000_GB_4408_25-03-2023.sln"
+    "dotnet.defaultSolution": "000_GB_4408_25-03-2023.sln",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
